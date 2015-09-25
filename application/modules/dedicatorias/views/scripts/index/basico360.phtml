@@ -1,0 +1,106 @@
+<div data-role="content"> 
+    <?php $this->getMesseger(); ?>
+    <div class='inset'>
+        <?php if (isset($this->mensaje) && $this->mensaje == '2') {
+            ?>
+            <div class='message success' style="background-color: orange">
+                <i class='fa fa-check' style="color: white"></i>
+                <p style="color: white">La Dedicatoria ha sido enviada correctamente</p>
+            </div>
+
+        <?php } elseif (isset($this->mensaje) && $this->mensaje == '1') {
+            ?>
+            <div class='message info' style="background-color: orange">
+                <i class='fa fa-lightbulb-o' style="color: white"></i>
+                <p style="color: white">Bienvenido al servicio DEDICATORIAS,elige la cancion que deseas enviar. ! Envia tu primera dedicatoria de REGALO!</p>
+            </div>
+        <?php }
+        ?>
+        <br>
+        <div> 
+            <img width="100%"   src="<?php echo STATIC_URL ?>css/jqueryMobile/banner_dedicatorias_nextel2.gif">
+        </div>
+        <!--        <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                    <li><a style="color:white;background-color: #FF6702;" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[0]->catalogo ?>">
+                            <img src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/1.jpg"  border="0" />
+                            <h2><?= strtoupper($this->SoapMusica[0]->tema) ?></h2>
+                            <p><?= $this->SoapMusica[0]->artista ?></p>
+                            <p class="ui-li-aside"><strong style="">S/.5.00</strong></p>
+                        </a>
+                    </li>
+                </ul>-->
+        <h2 style="color: black"> Destacadas</h2> 
+        <div class="ui-grid-b" >
+            <div class="ui-block-a" style="padding:0 2px 0 0;">
+                <div style="background-color: #FFFFFF;font-size: 0.5em">
+                    <a style="color:black;" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[2]->catalogo ?>">
+                        <img width="100%"  src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/9.jpg"  border="0" />
+                        <h2 style="display: block;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 0.45em 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap"><?= $this->SoapMusica[2]->tema ?></h2>
+                        <p style=" font-weight: 400;" style="font-weight: 1;"><?= $this->SoapMusica[2]->artista ?></p>
+                        <p  class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-block-b" style="padding:0 2px 0 2px">
+                <div style="background-color: #FFFFFF;font-size: 0.5em;">
+                    <a style="color:black" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[0]->catalogo ?>">
+                        <img width="100%"src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/2.jpg"  border="0" />
+                       <h2 style="display: block;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 0.45em 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap"><?= $this->SoapMusica[0]->tema ?></h2>
+                        <p style=" font-weight: 400;"><?= $this->SoapMusica[0]->artista ?></p>
+                        <p class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-block-c" style="padding:0 0 0 2px">
+                <div style="background-color: #FFFFFF;font-size: 0.5em;">
+                    <a style="color:black" href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $this->SoapMusica[6]->catalogo ?>">
+                        <img width="100%" src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/5.jpg"  border="0" />
+                       <h2 style="display: block;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 0.45em 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap"><?= $this->SoapMusica[6]->tema ?></h2>
+                        <p style=" font-weight: 400;"><?= $this->SoapMusica[6]->artista ?></p>
+                        <p class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h2 style="color: black">Top 10</h2> 
+        <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+            <?php
+            $i = 0;
+            foreach ($this->SoapMusica as $item):
+                $i++;
+                if ($i > 1 && $i <= 11) {
+                    ?>
+                    <li>
+                        <a href="/pe/dedicatorias/confirmar-dedicatoria?catalogo=<?= $item->catalogo ?>">
+                            <img src="<?php echo STATIC_URL ?>css/jqueryMobile/artista/<?= $i - 1 ?>.jpg"  border="0" />
+                            <h2><?= strtoupper($item->tema) ?></h2>
+                            <p><?= $item->artista ?></p>
+                            <p class="ui-li-aside"><strong style="color: #FF6702;">S/.5.00</strong></p>
+                        </a>
+                    </li>
+                    <p>
+                        <?php
+                    }
+                endforeach;
+                ?> 
+        </ul>
+    </div>
+</div>
